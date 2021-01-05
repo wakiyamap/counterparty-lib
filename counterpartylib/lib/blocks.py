@@ -1324,7 +1324,7 @@ def follow(db):
             requires_rollback = False
             while True:
                 if current_index == config.BLOCK_FIRST:
-                    break
+                    break # There have no record in the blocks table with block_indeex == BLOCK_FIRST - 1.
 
                 logger.debug('Checking that block {} is not an orphan.'.format(current_index))
 
@@ -1336,8 +1336,7 @@ def follow(db):
                 # DB parent hash.
                 blocks = list(cursor.execute('''SELECT * FROM blocks
                                                 WHERE block_index = ?''', (current_index - 1,)))
-                if len(blocks) != 1:  # For empty DB.
-                    break
+                assert len(blocks) == 1, 'DB may be corrupted.' # It must have the record if current_index isn't BLOCK_FIRST.
                 db_parent = blocks[0]['block_hash']
 
                 # Compare.
