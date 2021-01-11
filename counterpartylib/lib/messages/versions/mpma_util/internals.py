@@ -61,9 +61,10 @@ def _encode_memo(memo=None, is_hex=False):
             barr.append(memo)
         else:
             # signal a 0 bit for a string encoded memo
+            encoded_memo = memo.encode('utf-8')
             barr.append('0b0')
-            barr.append('uint:6=%i' % len(memo))
-            barr.append(BitArray(memo.encode('utf-8')))
+            barr.append('uint:6=%i' % len(encoded_memo))
+            barr.append(BitArray(encoded_memo))
 
         return barr
     else:
@@ -214,7 +215,13 @@ def _decode_memo(stream):
 
         if not(is_hex):
             # is an utf8 string
-            data = data.decode('utf-8')
+            if util.enabled('utf-8_codec_fixes'):
+                try:
+                    data = data.decode('utf-8')
+                except UnicodeDecodeError:
+                    data = data.decode('utf-8', 'replace')
+            else:
+                data = data.decode('utf-8')
 
         return data, is_hex
     else:
