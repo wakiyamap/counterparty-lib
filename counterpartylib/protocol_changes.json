@@ -264,5 +264,12 @@
     "minimum_version_revision": 4,
     "block_index": 2270000,
     "testnet_block_index": 1080000
+  },
+  "utf-8_codec_fixes": {
+    "minimum_version_major": 9,
+    "minimum_version_minor": 5806,
+    "minimum_version_revision": 2,
+    "block_index": 2270000,
+    "testnet_block_index": 1080000
   }
 }
