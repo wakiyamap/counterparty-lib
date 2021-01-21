@@ -199,7 +199,7 @@ def _decode_decodeSendList(stream, nbits, lut, block_index):
 
 def _decode_decodeSends(stream, nbits, lut, block_index):
     #stream = ConstBitStream(data)
-    sends = OrderdDict()
+    sends = OrderedDict()
 
     while stream.read('bool'):
         asset, sendList = _decode_decodeSendList(stream, nbits, lut, block_index)
