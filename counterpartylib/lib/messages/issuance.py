@@ -342,16 +342,17 @@ def compose (db, source, transfer_destination, asset, quantity, divisible, liste
     if problems: raise exceptions.ComposeError(problems)
 
     asset_id = util.generate_asset_id(asset, util.CURRENT_BLOCK_INDEX)
+    encoded_description = description.encode('utf-8')
     if subasset_longname is None or reissuance:
         # Type 20 standard issuance FORMAT_2 >QQB?If
         #   used for standard issuances and all reissuances
         data = message_type.pack(ID)
-        if len(description) <= 42:
-            curr_format = FORMAT_2 + '{}p'.format(len(description) + 1)
+        if len(encoded_description) <= 42:
+            curr_format = FORMAT_2 + '{}p'.format(len(encoded_description) + 1)
         else:
-            curr_format = FORMAT_2 + '{}s'.format(len(description))
+            curr_format = FORMAT_2 + '{}s'.format(len(encoded_description))
         data += struct.pack(curr_format, asset_id, quantity, (1 if divisible else 0) | (0 if listed else 2) | (0 if reassignable else 4), 1 if callable_ else 0,
-            call_date or 0, call_price or 0.0, description.encode('utf-8'))
+            call_date or 0, call_price or 0.0, encoded_description)
     else:
         # Type 21 subasset issuance SUBASSET_FORMAT >QQ?B
         #   Used only for initial subasset issuance
@@ -359,8 +360,8 @@ def compose (db, source, transfer_destination, asset, quantity, divisible, liste
         compacted_subasset_longname = util.compact_subasset_longname(subasset_longname)
         compacted_subasset_length = len(compacted_subasset_longname)
         data = message_type.pack(SUBASSET_ID)
-        curr_format = SUBASSET_FORMAT + '{}s'.format(compacted_subasset_length) + '{}s'.format(len(description))
-        data += struct.pack(curr_format, asset_id, quantity, (1 if divisible else 0) | (0 if listed else 2) | (0 if reassignable else 4) | (0 if vendable else 8), compacted_subasset_length, compacted_subasset_longname, description.encode('utf-8'))
+        curr_format = SUBASSET_FORMAT + '{}s'.format(compacted_subasset_length) + '{}s'.format(len(encoded_description))
+        data += struct.pack(curr_format, asset_id, quantity, (1 if divisible else 0) | (0 if listed else 2) | (0 if reassignable else 4) | (0 if vendable else 8), compacted_subasset_length, compacted_subasset_longname, encoded_description)
 
     if transfer_destination:
         destination_outputs = [(transfer_destination, None)]
@@ -396,7 +397,7 @@ def parse (db, tx, message, message_type_id):
             try:
                 description = description.decode('utf-8')
             except UnicodeDecodeError:
-                description = ''
+                description = description.decode('utf-8', 'replace') if util.enabled('utf-8_codec_fixes') else ''
         elif (tx['block_index'] > 283271 or config.TESTNET or config.REGTEST) and len(message) >= LENGTH_2: # Protocol change.
             if len(message) - LENGTH_2 <= 42:
                 curr_format = FORMAT_2 + '{}p'.format(len(message) - LENGTH_2)
@@ -411,7 +412,7 @@ def parse (db, tx, message, message_type_id):
             try:
                 description = description.decode('utf-8')
             except UnicodeDecodeError:
-                description = ''
+                description = description.decode('utf-8', 'replace') if util.enabled('utf-8_codec_fixes') else ''
         else:
             if len(message) != LENGTH_1:
                 raise exceptions.UnpackError
