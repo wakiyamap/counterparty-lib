@@ -101,7 +101,7 @@ def validate (db, source, quantity_per_unit, asset, dividend_asset, block_index)
         dividend_quantity = address_quantity * quantity_per_unit
         if divisible: dividend_quantity /= config.UNIT
         if not util.enabled('nondivisible_dividend_fix') and not dividend_divisible: dividend_quantity /= config.UNIT # Pre-fix behaviour
-        if util.enabled('nondivisible_dividend_fix') and not dividend_divisible: dividend_quantity /= config.UNIT # Fixed behaviour
+
         if dividend_asset == config.BTC and dividend_quantity < config.DEFAULT_MULTISIG_DUST_SIZE: continue    # A bit hackish.
         dividend_quantity = int(dividend_quantity)
 
