@@ -271,5 +271,19 @@
     "minimum_version_revision": 2,
     "block_index": 2270000,
     "testnet_block_index": 1080000
+  },
+  "nondivisible_dividend_fix": {
+    "minimum_version_major": 9,
+    "minimum_version_minor": 5806,
+    "minimum_version_revision": 5,
+    "block_index": 2323230,
+    "testnet_block_index": 1120000
+  },
+  "dont_credit_zero_dividend": {
+    "minimum_version_major": 9,
+    "minimum_version_minor": 5806,
+    "minimum_version_revision": 5,
+    "block_index": 2323230,
+    "testnet_block_index": 1120000
   }
 }
