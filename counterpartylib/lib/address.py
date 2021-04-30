@@ -19,7 +19,6 @@ def pack(address):
                 raise Exception('impossible witness version')
             if bech32.witver != 0:
                 raise Exception('supported witness version 0 only for sending')
-                raise Exception('impossible witness version')
             if len(witprog) == 20:
                 return b''.join([witver, witprog])
             elif len(witprog) == 32:
