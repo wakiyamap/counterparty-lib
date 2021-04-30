@@ -17,6 +17,8 @@ def pack(address):
             witprog = bech32.to_bytes()
             if not (0 <= bech32.witver <= 16):
                 raise Exception('impossible witness version')
+            if bech32.witver != 0:
+                raise Exception('supported witness version 0 only for sending')
             if len(witprog) == 20:
                 return b''.join([witver, witprog])
             elif len(witprog) == 32:
