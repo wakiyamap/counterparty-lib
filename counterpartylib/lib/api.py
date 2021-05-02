@@ -57,7 +57,8 @@ from counterpartylib.lib.messages import rpsresolve
 from counterpartylib.lib.messages import sweep
 from counterpartylib.lib.messages import dispenser
 
-API_TABLES = ['assets', 'balances', 'credits', 'debits', 'bets', 'bet_matches',
+API_TABLES = ['assetgroups',
+              'assets', 'balances', 'credits', 'debits', 'bets', 'bet_matches',
               'broadcasts', 'btcpays', 'burns', 'cancels', 'destructions',
               'dividends', 'issuances', 'orders', 'order_matches', 'sends',
               'bet_expirations', 'order_expirations', 'bet_match_expirations',
