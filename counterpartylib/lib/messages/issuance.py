@@ -11,7 +11,7 @@ import logging
 logger = logging.getLogger(__name__)
 D = decimal.Decimal
 
-from counterpartylib.lib import (config, util, exceptions, util, message_type)
+from counterpartylib.lib import (assetgroup, config, util, exceptions, util, message_type)
 from counterpartylib.lib.messages import (dispenser)
 
 FORMAT_1 = '>QQ?'
@@ -124,6 +124,8 @@ def initialise(db):
     cursor.execute('''CREATE INDEX IF NOT EXISTS
                       asset_longname_idx ON issuances (asset_longname)
                    ''')
+
+    assetgroup.initialise(db)
 
 def validate (db, source, destination, asset, quantity, divisible, listed, reassignable, vendable, fungible, callable_, call_date, call_price, description, subasset_parent, subasset_longname, block_index):
     problems = []
@@ -244,12 +246,8 @@ def validate (db, source, destination, asset, quantity, divisible, listed, reass
             else:
                 problems.append('parent asset not found')
         else:
-            cursor.execute('''SELECT * FROM issuances
-                              WHERE (status = ? AND asset_group = ?)
-                              ORDER BY tx_index ASC''', ('valid', subasset_longname))
-            asset_groups = cursor.fetchall()
-            if asset_groups and asset_groups[-1]['issuer'] != source:
-                problems.append('asset group owned by another address')
+            problems += assetgroup.validate(db, subasset_longname, source)
+
         cursor.close()
 
     if subasset_longname is not None and not reissuance:
@@ -580,9 +578,19 @@ def parse (db, tx, message, message_type_id):
         logger.warn("Not storing [issuance] tx [%s]: %s" % (tx['tx_hash'], status))
         logger.debug("Bindings: %s" % (json.dumps(bindings), ))
 
+    if not fungible:
+        assetgroup.create(db,
+            tx['tx_index'],
+            tx['tx_hash'],
+            tx['block_index'],
+            asset_longname,
+            issuer,
+            status)
+
     # Credit.
     if status == 'valid' and quantity:
         util.credit(db, tx['source'], asset, quantity, action="issuance", event=tx['tx_hash'])
+
 
     issuance_parse_cursor.close()
 
@@ -609,5 +617,6 @@ def is_vendable(db, asset):
         return False
     else:
         return vendable
+
 
 # vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4
