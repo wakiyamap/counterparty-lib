@@ -157,9 +157,9 @@ def validate (db, source, destination, asset, quantity, divisible, listed, reass
         return call_date, call_price, problems, fee, description, divisible, listed, reassignable, vendable, fungible, None, None
 
     if util.enabled('non_fungible_assets'):
-        if fungible:
+        if not fungible:
             if divisible:
-                problems.append('Cannot create the asset with fungible and divisible')
+                problems.append('Cannot create the asset with non-fungible and divisible')
             elif quantity != 1:
                 problems.append('non-fingble asset can issue only 1 asset')
     elif not fungible:
