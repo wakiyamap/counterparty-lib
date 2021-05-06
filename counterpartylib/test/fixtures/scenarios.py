@@ -27,6 +27,7 @@ Here's a list of unit tests that will fail and need to be updated:
 - util.get_balance
 """
 
+from counterpartylib.lib import config
 from .params import ADDR, MULTISIGADDR, P2SH_ADDR, P2WPKH_ADDR, DEFAULT_PARAMS as DP
 from counterpartylib.lib import config
 
