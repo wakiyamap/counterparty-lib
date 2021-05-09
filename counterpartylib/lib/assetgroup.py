@@ -59,4 +59,5 @@ def create(db, tx_index, tx_hash, block_index, asset_group, owner, status):
             :msg_index,
             :block_index,
             :asset_group,
-            :owner''', bindings)
+            :owner,
+            :status)''', bindings)
