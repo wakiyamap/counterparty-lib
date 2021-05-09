@@ -161,7 +161,7 @@ def validate (db, source, destination, asset, quantity, divisible, listed, reass
             if divisible:
                 problems.append('Cannot create the asset with non-fungible and divisible')
             elif quantity != 1:
-                problems.append('non-fingble asset can issue only 1 asset')
+                problems.append('non-fungible asset can issue only 1 asset')
     elif not fungible:
         problems.append('non-fungible assets not enabled')
 
@@ -483,13 +483,21 @@ def parse (db, tx, message, message_type_id):
     # parse and validate the subasset from the message
     subasset_parent = None
     if status == 'valid' and subasset_longname is not None: # Protocol change.
-        try:
-            # ensure the subasset_longname is valid
-            util.validate_subasset_longname(subasset_longname)
-            subasset_parent, subasset_longname = util.parse_subasset_from_asset_name(subasset_longname)
-        except exceptions.AssetNameError as e:
-            asset = None
-            status = 'invalid: bad subasset name'
+        if fungible:
+            try:
+                # ensure the subasset_longname is valid
+                util.validate_subasset_longname(subasset_longname)
+                subasset_parent, subasset_longname = util.parse_subasset_from_asset_name(subasset_longname)
+            except exceptions.AssetNameError as e:
+                asset = None
+                status = 'invalid: bad subasset name'
+        else:
+            subasset_parent = asset
+            try:
+                util.validate_subasset_longname(subasset_longname, subasset_longname)
+            except exceptions.AssetNameError:
+                asset = None
+                status = 'invalid: bad assetgroup name'
 
     reissuance = None
     fee = 0
