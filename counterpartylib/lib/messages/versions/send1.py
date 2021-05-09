@@ -22,7 +22,7 @@ def unpack(db, message, block_index):
     except struct.error:
         raise exceptions.UnpackError('could not unpack')
 
-    except AssetNameError:
+    except exceptions.AssetNameError:
         raise exceptions.UnpackError('asset id invalid')
 
     unpacked = {

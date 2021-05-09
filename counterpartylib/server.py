@@ -43,8 +43,8 @@ def sigterm_handler(_signo, _stack_frame):
 
     if 'api_server' in globals():
         logger.info('Stopping API server.')
-        api_server.stop()
-        api_status_poller.stop()
+        api_server.stop() # noqa: F821
+        api_status_poller.stop() # noqa: F821
     logger.info('Shutting down.')
     logging.shutdown()
     sys.exit(0)
