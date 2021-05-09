@@ -115,11 +115,9 @@ class asset_metadata_receiver(trigger_receiver):
             problems += self.__lock(tx, asset, bson_object)
         elif query_type == TYPE_DELETE:
             problems += self.__store(tx, asset, None)
-        #TODO
-        #elif dry_run:
-        #    problems += 'Unknown query type'
-        else:
+        elif tx is None:
             problems += 'Unknown query type'
+        else:
             assert False, 'Seems bugs in the validation phase.'
 
         return problems
