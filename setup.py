@@ -166,7 +166,6 @@ class bdist_egg(_bdist_egg):
 
 required_packages = [
     'appdirs==1.4.0',
-    'setuptools-markdown==0.2',
     'python-dateutil==2.5.3',
     'Flask-HTTPAuth==3.1.2',
     'Flask==0.11.1',
@@ -197,6 +196,8 @@ setup_options = {
     'url': 'http://counterparty.io',
     'license': 'MIT',
     'description': 'Counterparty Protocol Reference Implementation',
+    'long_description': open('README.md').read(),
+    'long_description_content_type': 'text/markdown',
     'keywords': 'counterparty, bitcoin',
     'classifiers': [
         "Development Status :: 5 - Production/Stable",
@@ -215,7 +216,7 @@ setup_options = {
     'provides': ['counterpartylib'],
     'packages': find_packages(),
     'zip_safe': False,
-    'setup_requires': ['appdirs', 'setuptools-markdown'],
+    'setup_requires': ['appdirs'],
     'install_requires': required_packages,
     'include_package_data': True,
     'cmdclass': {
@@ -224,8 +225,5 @@ setup_options = {
         'install_apsw': install_apsw
     }
 }
-
-if sys.argv[1] == 'sdist':
-    setup_options['long_description_markdown_filename'] = 'README.md'
 
 setup(**setup_options)
