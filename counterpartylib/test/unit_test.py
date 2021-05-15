@@ -1,6 +1,7 @@
 #! /usr/bin/python3
 import tempfile
 import pytest
+from counterpartylib.lib import config
 from counterpartylib.test import conftest  # this is require near the top to do setup of the test suite
 from counterpartylib.test import util_test
 from counterpartylib.test.util_test import CURR_DIR
