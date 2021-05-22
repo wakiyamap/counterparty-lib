@@ -27,29 +27,29 @@ def test_alice_bob(server_db):
     assert utxos[0]['confirmations'] == 74
 
     # balance before send
-    alice_balance = util.get_balance(server_db, alice, 'XCP')
-    bob_balance = util.get_balance(server_db, bob, 'XCP')
+    alice_balance = util.get_balance(server_db, alice, 'XMP')
+    bob_balance = util.get_balance(server_db, bob, 'XMP')
     assert alice_balance == 91875000000
     assert bob_balance == 0
 
     # create send
     v = int(100 * 1e8)
-    send1hex = util.api('create_send', {'source': alice, 'destination': bob, 'asset': 'XCP', 'quantity': v})
-    assert send1hex == "0100000001c1d8c075936c3495f6d653c50f73d987f75448d97a750249b1eb83bee71b24ae000000001976a9144838d8b3588c4c7ba7c1d06f866e9b3739c6303788acffffffff0336150000000000001976a9141e9d9c2c34d4dda3cd71603d9ce1e447c3cc5c0588ac00000000000000001e6a1c8a5dda15fb6f05628a061e67576e926dc71a7fa2f0cceb951120a9322f30ea0b000000001976a9144838d8b3588c4c7ba7c1d06f866e9b3739c6303788ac00000000"
+    send1hex = util.api('create_send', {'source': alice, 'destination': bob, 'asset': 'XMP', 'quantity': v})
+    assert send1hex == "0100000001c1d8c075936c3495f6d653c50f73d987f75448d97a750249b1eb83bee71b24ae000000001976a9144838d8b3588c4c7ba7c1d06f866e9b3739c6303788acffffffff0348d50000000000001976a9141e9d9c2c34d4dda3cd71603d9ce1e447c3cc5c0588ac00000000000000001e6a1c8a5dda15fb6f05628a061e67576e926dc71a7fa2f0cceb951120a9321d70e90b000000001976a9144838d8b3588c4c7ba7c1d06f866e9b3739c6303788ac00000000"
 
     # insert send, this automatically also creates a block
     tx1hash, tx1 = util_test.insert_raw_transaction(send1hex, server_db)
 
     # balances after send
-    alice_balance2 = util.get_balance(server_db, alice, 'XCP')
-    bob_balance2 = util.get_balance(server_db, bob, 'XCP')
+    alice_balance2 = util.get_balance(server_db, alice, 'XMP')
+    bob_balance2 = util.get_balance(server_db, bob, 'XMP')
     assert alice_balance2 == alice_balance - v
     assert bob_balance2 == bob_balance + v
 
     # check API result
     result = util.api("get_balances", {"filters": [
         {'field': 'address', 'op': '==', 'value': alice},
-        {'field': 'asset', 'op': '==', 'value': 'XCP'},
+        {'field': 'asset', 'op': '==', 'value': 'XMP'},
     ]})
 
     assert result[0]['quantity'] == alice_balance2
@@ -61,26 +61,26 @@ def test_alice_bob(server_db):
     assert len(utxos) == 1
     assert utxos[0]['address'] == alice
     assert utxos[0]['txid'] == tx1['tx_hash']
-    assert utxos[0]['amount'] == 1.99897135
+    assert utxos[0]['amount'] == 1.99847965
     assert utxos[0]['confirmations'] == 1
 
     # balances before send
-    alice_balance = util.get_balance(server_db, alice, 'XCP')
-    bob_balance = util.get_balance(server_db, bob, 'XCP')
+    alice_balance = util.get_balance(server_db, alice, 'XMP')
+    bob_balance = util.get_balance(server_db, bob, 'XMP')
     assert alice_balance == alice_balance2
     assert bob_balance == bob_balance2
 
     # create send
     v = int(100 * 1e8)
-    send2hex = util.api('create_send', {'source': alice, 'destination': bob, 'asset': 'XCP', 'quantity': v})
-    assert send2hex == "0100000001cd2d431037d1d0cfe05daeb1d08b975f27488e383f7f169e09d2f405fb618f39020000001976a9144838d8b3588c4c7ba7c1d06f866e9b3739c6303788acffffffff0336150000000000001976a9141e9d9c2c34d4dda3cd71603d9ce1e447c3cc5c0588ac00000000000000001e6a1c8a5dda15fb6f05628a061e67576e926dc71a7fa2f0cceb951120a9324a01ea0b000000001976a9144838d8b3588c4c7ba7c1d06f866e9b3739c6303788ac00000000"
+    send2hex = util.api('create_send', {'source': alice, 'destination': bob, 'asset': 'XMP', 'quantity': v})
+    assert send2hex == "0100000001731501abff75c8a306d7c76f7390fbc862e1176c6132a26c4b9ecff173ea1880020000001976a9144838d8b3588c4c7ba7c1d06f866e9b3739c6303788acffffffff0348d50000000000001976a9141e9d9c2c34d4dda3cd71603d9ce1e447c3cc5c0588ac00000000000000001e6a1c8a5dda15fb6f05628a061e67576e926dc71a7fa2f0cceb951120a9322681e80b000000001976a9144838d8b3588c4c7ba7c1d06f866e9b3739c6303788ac00000000"
 
     # insert send, this automatically also creates a block
     tx2hash, tx2 = util_test.insert_raw_transaction(send2hex, server_db)
 
     # balances after send
-    alice_balance2 = util.get_balance(server_db, alice, 'XCP')
-    bob_balance2 = util.get_balance(server_db, bob, 'XCP')
+    alice_balance2 = util.get_balance(server_db, alice, 'XMP')
+    bob_balance2 = util.get_balance(server_db, bob, 'XMP')
     assert alice_balance2 == alice_balance - v
     assert bob_balance2 == bob_balance + v
 
@@ -91,26 +91,26 @@ def test_alice_bob(server_db):
     assert len(utxos) == 1
     assert utxos[0]['address'] == alice
     assert utxos[0]['txid'] == tx2['tx_hash']
-    assert utxos[0]['amount'] == 1.9988513
+    assert utxos[0]['amount'] == 1.9978679
     assert utxos[0]['confirmations'] == 1
 
     # balances before send
-    alice_balance = util.get_balance(server_db, alice, 'XCP')
-    bob_balance = util.get_balance(server_db, bob, 'XCP')
+    alice_balance = util.get_balance(server_db, alice, 'XMP')
+    bob_balance = util.get_balance(server_db, bob, 'XMP')
     assert alice_balance == alice_balance2
     assert bob_balance == bob_balance2
 
     # create send
     v = int(100 * 1e8)
-    send3hex = util.api('create_send', {'source': alice, 'destination': bob, 'asset': 'XCP', 'quantity': v})
-    assert send3hex == "01000000019aea7b78c8fffa50c51bbadb87824a202b3e6b53727e543e9c6846845205b5ce020000001976a9144838d8b3588c4c7ba7c1d06f866e9b3739c6303788acffffffff0336150000000000001976a9141e9d9c2c34d4dda3cd71603d9ce1e447c3cc5c0588ac00000000000000001e6a1c8a5dda15fb6f05628a061e67576e926dc71a7fa2f0cceb951120a93265d2e90b000000001976a9144838d8b3588c4c7ba7c1d06f866e9b3739c6303788ac00000000"
+    send3hex = util.api('create_send', {'source': alice, 'destination': bob, 'asset': 'XMP', 'quantity': v})
+    assert send3hex == "0100000001cc3749203e22053414a6b5c8c8eb437288b41a28728e5fd0f9ab342fffe93405020000001976a9144838d8b3588c4c7ba7c1d06f866e9b3739c6303788acffffffff0348d50000000000001976a9141e9d9c2c34d4dda3cd71603d9ce1e447c3cc5c0588ac00000000000000001e6a1c8a5dda15fb6f05628a061e67576e926dc71a7fa2f0cceb951120a9322f92e70b000000001976a9144838d8b3588c4c7ba7c1d06f866e9b3739c6303788ac00000000"
 
     # insert send, as unconfirmed! won't create a block!
     tx3 = util_test.insert_unconfirmed_raw_transaction(send3hex, server_db)
 
     # balances after send, unaffected
-    alice_balance2 = util.get_balance(server_db, alice, 'XCP')
-    bob_balance2 = util.get_balance(server_db, bob, 'XCP')
+    alice_balance2 = util.get_balance(server_db, alice, 'XMP')
+    bob_balance2 = util.get_balance(server_db, bob, 'XMP')
     assert alice_balance2 == alice_balance
     assert bob_balance2 == bob_balance
 
@@ -123,7 +123,7 @@ def test_alice_bob(server_db):
     assert len(utxos) == 1
     assert utxos[0]['address'] == alice
     assert utxos[0]['txid'] == tx3['tx_hash']
-    assert utxos[0]['amount'] == 1.99873125
+    assert utxos[0]['amount'] == 1.99725615
     assert utxos[0]['confirmations'] == 0
 
     # atm there's no way to confirm this unconfirmed TX
@@ -134,7 +134,7 @@ def test_alice_bob(server_db):
     assert len(utxos) == 1
     assert utxos[0]['address'] == alice
     assert utxos[0]['txid'] == tx3['tx_hash']
-    assert utxos[0]['amount'] == 1.99873125
+    assert utxos[0]['amount'] == 1.99725615
     assert utxos[0]['confirmations'] == 1
 
     # we can eventually make this mocking better to be able to do that,
@@ -143,7 +143,7 @@ def test_alice_bob(server_db):
     tx3bhash, tx3b = util_test.insert_raw_transaction(send3hex, server_db)
 
     # balances after send
-    alice_balance2 = util.get_balance(server_db, alice, 'XCP')
-    bob_balance2 = util.get_balance(server_db, bob, 'XCP')
+    alice_balance2 = util.get_balance(server_db, alice, 'XMP')
+    bob_balance2 = util.get_balance(server_db, bob, 'XMP')
     assert alice_balance2 == alice_balance - v
     assert bob_balance2 == bob_balance + v
