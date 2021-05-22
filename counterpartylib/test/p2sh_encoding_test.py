@@ -43,7 +43,7 @@ def test_p2sh_encoding(server_db):
             server_db, 'send',
             {'source': source,
              'destination': destination,
-             'asset': 'XCP',
+             'asset': 'XMP',
              'quantity': 100},
             encoding='p2sh',
             fee_per_kb=fee_per_kb,
@@ -104,7 +104,7 @@ def test_p2sh_encoding(server_db):
             server_db, 'send',
             {'source': source,
              'destination': destination,
-             'asset': 'XCP',
+             'asset': 'XMP',
              'quantity': 100}
         )
         othertx = bitcoinlib.core.CTransaction.deserialize(binascii.unhexlify(result))
@@ -117,7 +117,7 @@ def test_p2sh_encoding(server_db):
             server_db, 'send',
             {'source': source,
              'destination': destination,
-             'asset': 'XCP',
+             'asset': 'XMP',
              'quantity': 100},
             p2sh_pretx_txid=pretxid,  # pass the pretxid
             encoding='p2sh',
@@ -160,7 +160,7 @@ def test_p2sh_encoding(server_db):
         # verify parsed result
         parsed_source, parsed_destination, parsed_btc_amount, parsed_fee, parsed_data, extra = blocks._get_tx_info(datatxhex)
         #assert parsed_source == source # make_canonical cannot calculate this address
-        assert parsed_data == binascii.unhexlify("00000002" "0000000000000001" "0000000000000064" "6f8d6ae8a3b381663118b4e1eff4cfc7d0954dd6ec")  # ID=enhanced_send(0x02) ASSET=XCP(0x01) VALUE=100(0x64) destination_pubkey(0x6f8d...d6ec)
+        assert parsed_data == binascii.unhexlify("00000002" "0000000000000001" "0000000000000064" "6f8d6ae8a3b381663118b4e1eff4cfc7d0954dd6ec")  # ID=enhanced_send(0x02) ASSET=XMP(0x01) VALUE=100(0x64) destination_pubkey(0x6f8d...d6ec)
         assert parsed_btc_amount == 0
         assert parsed_fee == expected_datatx_fee
 
@@ -313,7 +313,7 @@ def test_p2sh_encoding_long_data(server_db):
         parsed_source, parsed_destination, parsed_btc_amount, parsed_fee, parsed_data, extra = blocks._get_tx_info(datatxhex)
         #assert parsed_source == source # make_canonical can't calculate this address
 
-        assert parsed_data == binascii.unhexlify("0000001e5a21aad6000000000000000000000000") + b'The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. '  # ID=enhanced_send(0x1e) ASSET=XCP(0x01) VALUE=100(0x64) destination_pubkey(0x6f8d...d6ec)
+        assert parsed_data == binascii.unhexlify("0000001e5a21aad6000000000000000000000000") + b'The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. '  # ID=enhanced_send(0x1e) ASSET=XMP(0x01) VALUE=100(0x64) destination_pubkey(0x6f8d...d6ec)
         assert parsed_btc_amount == 0
         assert parsed_fee == expected_datatx_fee_rounded
 
@@ -333,7 +333,7 @@ def test_p2sh_encoding_p2sh_source_not_supported(server_db):
                 server_db, 'send',
                 {'source': source,
                  'destination': destination,
-                 'asset': 'XCP',
+                 'asset': 'XMP',
                  'quantity': 100},
                 encoding='p2sh',
                 fee_per_kb=fee_per_kb,
@@ -366,7 +366,7 @@ def test_p2sh_encoding_manual_multisig_transaction(server_db):
             server_db, 'send',
             {'source': source,
              'destination': destination,
-             'asset': 'XCP',
+             'asset': 'XMP',
              'quantity': 100,
             },
             p2sh_source_multisig_pubkeys=[DP['pubkey'][ADDR[0]], DP['pubkey'][ADDR[1]], DP['pubkey'][ADDR[2]]],
@@ -386,7 +386,7 @@ def test_p2sh_encoding_manual_multisig_transaction(server_db):
             server_db, 'send',
             {'source': source,
              'destination': destination,
-             'asset': 'XCP',
+             'asset': 'XMP',
              'quantity': 100},
             p2sh_source_multisig_pubkeys=[DP['pubkey'][ADDR[0]], DP['pubkey'][ADDR[1]], DP['pubkey'][ADDR[2]]],
             p2sh_source_multisig_pubkeys_required=2,
@@ -402,7 +402,7 @@ def test_p2sh_encoding_manual_multisig_transaction(server_db):
         # parse the transaction
         parsed_source, parsed_destination, parsed_btc_amount, parsed_fee, parsed_data, extra = blocks._get_tx_info(datatxhex)
         assert parsed_source == source
-        assert parsed_data == binascii.unhexlify("00000002" "0000000000000001" "0000000000000064" "6f8d6ae8a3b381663118b4e1eff4cfc7d0954dd6ec")  # ID=enhanced_send(0x02) ASSET=XCP(0x01) VALUE=100(0x64) destination_pubkey(0x6f8d...d6ec)
+        assert parsed_data == binascii.unhexlify("00000002" "0000000000000001" "0000000000000064" "6f8d6ae8a3b381663118b4e1eff4cfc7d0954dd6ec")  # ID=enhanced_send(0x02) ASSET=XMP(0x01) VALUE=100(0x64) destination_pubkey(0x6f8d...d6ec)
         assert parsed_btc_amount == 0
 
 

@@ -62,7 +62,7 @@ def test_search_raw_transactions_unconfirmed(server_db):
 
     # create send
     v = int(100 * 1e8)
-    send1hex = util.api('create_send', {'source': ADDR[0], 'destination': ADDR[1], 'asset': 'XCP', 'quantity': v})
+    send1hex = util.api('create_send', {'source': ADDR[0], 'destination': ADDR[1], 'asset': 'XMP', 'quantity': v})
 
     # insert send, this automatically also creates a block
     tx1 = util_test.insert_raw_transaction(send1hex, server_db)
@@ -72,7 +72,7 @@ def test_search_raw_transactions_unconfirmed(server_db):
 
     # create send
     v = int(100 * 1e8)
-    send2hex = util.api('create_send', {'source': ADDR[0], 'destination': ADDR[1], 'asset': 'XCP', 'quantity': v})
+    send2hex = util.api('create_send', {'source': ADDR[0], 'destination': ADDR[1], 'asset': 'XMP', 'quantity': v})
 
     # insert send, this automatically also creates a block
     tx2 = util_test.insert_unconfirmed_raw_transaction(send2hex, server_db)

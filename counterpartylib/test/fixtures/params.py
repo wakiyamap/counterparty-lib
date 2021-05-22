@@ -54,11 +54,12 @@ MULTISIGADDR = [
     '3_{}_{}_{}_3'.format(ADDR[0], ADDR[2], ADDR[3])
 ]
 
+# publickey:mnfAHmddVibnZNSkh8DvKaQoiEfNsxjXzH 0378ee11c3fb97054877a809ce083db292b16d971bcdc6aa4c8f92087133729d8b
 P2SH_ADDR = [
-    '2MyJHMUenMWonC35Yi6PHC7i2tkS7PuomCy', # 2of2 mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns
-    '2N6P6d3iypnnud4YJDfHZ6kc513N8ezWmPx', # 2of3 mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns mnfAHmddVibnZNSkh8DvKaQoiEfNsxjXzH
+    'pBbdZu72GGCZao4hmx56tDCtAu5bGrxAy7', # 2of2 mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns
+    'pJgSqUBDjYBh1pXTHWyNnr6vHC1cSpxdmW', # 2of3 mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns mnfAHmddVibnZNSkh8DvKaQoiEfNsxjXzH
 ]
 
 P2WPKH_ADDR = [
-    'tb1qw508d6qejxtdg4y5r3zarvary0c5xw7kxpjzsx'
+    'tmona1qw508d6qejxtdg4y5r3zarvary0c5xw7ks0dvvw'
 ]

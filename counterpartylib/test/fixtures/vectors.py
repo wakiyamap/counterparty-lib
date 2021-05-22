@@ -358,7 +358,7 @@ UNITTEST_VECTOR = {
             {
                 'in': (b'0100000001ebe3111881a8733ace02271dcf606b7450c41a48c1cb21fd73f4ba787b353ce4000000001976a9148d6ae8a3b381663118b4e1eff4cfc7d0954dd6ec88acffffffff03361500000000000017a9144264cfd7eb65f8cbbdba98bd9815d5461fad8d7e87781e000000000000695121035ca51ea175f108a1c63588683dc4c43a7146c46799f864a300263c0813f5fe352102309a14a1a30202f2e76f46acdb2917752371ca42b97460f7928ade8ecb02ea17210319f6e07b0b8d756156394b9dcf3b011fe9ac19f2700bd6b69a6a1783dbb8b97753ae4286f505000000001976a9148d6ae8a3b381663118b4e1eff4cfc7d0954dd6ec88ac00000000',),
                 'out': ('mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns',
-                        '2MyJHMUenMWonC35Yi6PHC7i2tkS7PuomCy',
+                        'pBbdZu72GGCZao4hmx56tDCtAu5bGrxAy7',
                         5430,
                         10000,
                         b'\x00\x00\x00(\x00\x00R\xbb3d\x00\x00\x00\x00\x02\xfa\xf0\x80\x00\x00\x00\x00\x02\xfa\xf0\x80\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00;\x10\x00\x00\x00\n',
@@ -370,7 +370,7 @@ UNITTEST_VECTOR = {
                 'comment': 'data in OP_CHECKMULTISIG script , without first_input_is_source, 2 sources',
                 'in': (b'0100000002ebe3111881a8733ace02271dcf606b7450c41a48c1cb21fd73f4ba787b353ce4000000001976a9148d6ae8a3b381663118b4e1eff4cfc7d0954dd6ec88acffffffff5ef833190e74ad47d8ae693f841a8b1b500ded7e23ee66b29898b72ec4914fdc0100000000ffffffff03361500000000000017a9144264cfd7eb65f8cbbdba98bd9815d5461fad8d7e87781e000000000000695121035ca51ea175f108a1c63588683dc4c43a7146c46799f864a300263c0813f5fe352102309a14a1a30202f2e76f46acdb2917752371ca42b97460f7928ade8ecb02ea17210319f6e07b0b8d756156394b9dcf3b011fe9ac19f2700bd6b69a6a1783dbb8b97753aed2fe7c11000000001976a9148d6ae8a3b381663118b4e1eff4cfc7d0954dd6ec88ac00000000',),
                 'out': ('mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns-mnfAHmddVibnZNSkh8DvKaQoiEfNsxjXzH',
-                        '2MyJHMUenMWonC35Yi6PHC7i2tkS7PuomCy',
+                        'pBbdZu72GGCZao4hmx56tDCtAu5bGrxAy7',
                         5430,
                         10000,
                         b'\x00\x00\x00(\x00\x00R\xbb3d\x00\x00\x00\x00\x02\xfa\xf0\x80\x00\x00\x00\x00\x02\xfa\xf0\x80\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00;\x10\x00\x00\x00\n',
@@ -380,7 +380,7 @@ UNITTEST_VECTOR = {
                 'comment': 'data in OP_CHECKMULTISIG script, with first_input_is_source, 1 source',
                 'in': (b'0100000002ebe3111881a8733ace02271dcf606b7450c41a48c1cb21fd73f4ba787b353ce4000000001976a9148d6ae8a3b381663118b4e1eff4cfc7d0954dd6ec88acffffffff5ef833190e74ad47d8ae693f841a8b1b500ded7e23ee66b29898b72ec4914fdc0100000000ffffffff03361500000000000017a9144264cfd7eb65f8cbbdba98bd9815d5461fad8d7e87781e000000000000695121035ca51ea175f108a1c63588683dc4c43a7146c46799f864a300263c0813f5fe352102309a14a1a30202f2e76f46acdb2917752371ca42b97460f7928ade8ecb02ea17210319f6e07b0b8d756156394b9dcf3b011fe9ac19f2700bd6b69a6a1783dbb8b97753aed2fe7c11000000001976a9148d6ae8a3b381663118b4e1eff4cfc7d0954dd6ec88ac00000000',),
                 'out': ('mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns',
-                        '2MyJHMUenMWonC35Yi6PHC7i2tkS7PuomCy',
+                        'pBbdZu72GGCZao4hmx56tDCtAu5bGrxAy7',
                         5430,
                         10000,
                         b'\x00\x00\x00(\x00\x00R\xbb3d\x00\x00\x00\x00\x02\xfa\xf0\x80\x00\x00\x00\x00\x02\xfa\xf0\x80\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00;\x10\x00\x00\x00\n',
@@ -461,7 +461,7 @@ UNITTEST_VECTOR = {
             {
                 'in': (b'0100000001ebe3111881a8733ace02271dcf606b7450c41a48c1cb21fd73f4ba787b353ce4000000001976a9148d6ae8a3b381663118b4e1eff4cfc7d0954dd6ec88acffffffff03361500000000000017a9144264cfd7eb65f8cbbdba98bd9815d5461fad8d7e87781e000000000000695121035ca51ea175f108a1c63588683dc4c43a7146c46799f864a300263c0813f5fe352102309a14a1a30202f2e76f46acdb2917752371ca42b97460f7928ade8ecb02ea17210319f6e07b0b8d756156394b9dcf3b011fe9ac19f2700bd6b69a6a1783dbb8b97753ae4286f505000000001976a9148d6ae8a3b381663118b4e1eff4cfc7d0954dd6ec88ac00000000',),
                 'out': ('mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns',
-                        '2MyJHMUenMWonC35Yi6PHC7i2tkS7PuomCy',
+                        'pBbdZu72GGCZao4hmx56tDCtAu5bGrxAy7',
                         5430,
                         10000,
                         b'\x00\x00\x00(\x00\x00R\xbb3d\x00\x00\x00\x00\x02\xfa\xf0\x80\x00\x00\x00\x00\x02\xfa\xf0\x80\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00;\x10\x00\x00\x00\n',
@@ -1259,7 +1259,7 @@ UNITTEST_VECTOR = {
         }, {
             'in': (ADDR[0], P2SH_ADDR[0], config.BTC, DP['quantity']),
             'out': ('mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc',
-                    [('2MyJHMUenMWonC35Yi6PHC7i2tkS7PuomCy', 100000000)],
+                    [('pBbdZu72GGCZao4hmx56tDCtAu5bGrxAy7', 100000000)],
                     None)
         }, {
             'comment': 'resolve subasset to numeric asset',
@@ -2180,7 +2180,7 @@ UNITTEST_VECTOR = {
                     [
                         {'address_quantity': 100000000, 'dividend_quantity': 100000000000, 'address': 'mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns'},
                         {'address_quantity': 1000000000, 'dividend_quantity': 1000000000000, 'address': '1_mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc_mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns_2'},
-                        {'address_quantity': 100000000, 'dividend_quantity': 100000000000, 'address': '2MyJHMUenMWonC35Yi6PHC7i2tkS7PuomCy'}
+                        {'address_quantity': 100000000, 'dividend_quantity': 100000000000, 'address': 'pBbdZu72GGCZao4hmx56tDCtAu5bGrxAy7'}
                     ],
                     ['insufficient funds (XCP)'],
                     0)
@@ -2190,7 +2190,7 @@ UNITTEST_VECTOR = {
                     [
                         {'address': 'mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns', 'dividend_quantity': -100000000000, 'address_quantity': 100000000},
                         {'address': '1_mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc_mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns_2', 'dividend_quantity': -1000000000000, 'address_quantity': 1000000000},
-                        {'address': '2MyJHMUenMWonC35Yi6PHC7i2tkS7PuomCy', 'dividend_quantity': -100000000000, 'address_quantity': 100000000}
+                        {'address': 'pBbdZu72GGCZao4hmx56tDCtAu5bGrxAy7', 'dividend_quantity': -100000000000, 'address_quantity': 100000000}
                     ],
                     ['non‐positive quantity per unit'],
                     0)
@@ -2213,7 +2213,7 @@ UNITTEST_VECTOR = {
                     [
                         {'dividend_quantity': 0, 'address': 'mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns', 'address_quantity': 100000000},
                         {'dividend_quantity': 0, 'address': '1_mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc_mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns_2', 'address_quantity': 1000000000},
-                        {'dividend_quantity': 0, 'address': '2MyJHMUenMWonC35Yi6PHC7i2tkS7PuomCy', 'address_quantity': 100000000}
+                        {'dividend_quantity': 0, 'address': 'pBbdZu72GGCZao4hmx56tDCtAu5bGrxAy7', 'address_quantity': 100000000}
                     ],
                     ['non‐positive quantity per unit', 'zero dividend'],
                     0)
@@ -2223,7 +2223,7 @@ UNITTEST_VECTOR = {
                     [
                         {'address_quantity': 98800000000, 'address': 'mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc', 'dividend_quantity': 98800000000},
                         {'address_quantity': 1000000000, 'address': '1_mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc_mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns_2', 'dividend_quantity': 1000000000},
-                        {'address_quantity': 100000000, 'address': '2MyJHMUenMWonC35Yi6PHC7i2tkS7PuomCy', 'dividend_quantity': 100000000}
+                        {'address_quantity': 100000000, 'address': 'pBbdZu72GGCZao4hmx56tDCtAu5bGrxAy7', 'dividend_quantity': 100000000}
                     ],
                     ['only issuer can pay dividends', 'insufficient funds (XCP)'],
                     0)
@@ -2236,7 +2236,7 @@ UNITTEST_VECTOR = {
                     [
                         {'address': 'mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns', 'dividend_quantity': 8359090909, 'address_quantity': 100000000},
                         {'address': '1_mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc_mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns_2', 'dividend_quantity': 83590909090, 'address_quantity': 1000000000},
-                        {'address': '2MyJHMUenMWonC35Yi6PHC7i2tkS7PuomCy', 'dividend_quantity': 8359090909, 'address_quantity': 100000000},
+                        {'address': 'pBbdZu72GGCZao4hmx56tDCtAu5bGrxAy7', 'dividend_quantity': 8359090909, 'address_quantity': 100000000},
                     ],
                     ['insufficient funds (XCP)'],
                     0)
@@ -2307,7 +2307,7 @@ UNITTEST_VECTOR = {
                     'quantity': 1000000000,
                 }},
                 {'table': 'credits', 'values': {
-                    'address': '2MyJHMUenMWonC35Yi6PHC7i2tkS7PuomCy',
+                    'address': 'pBbdZu72GGCZao4hmx56tDCtAu5bGrxAy7',
                     'asset': config.XCP,
                     'block_index': DP['default_block_index'],
                     'calling_function': 'dividend',
@@ -3782,7 +3782,7 @@ UNITTEST_VECTOR = {
             }, {
                 'comment': 'p2sh',
                 'in': (bitcoinlib.core.CScript(bitcoinlib.core.x('a9144264cfd7eb65f8cbbdba98bd9815d5461fad8d7e87')),),
-                'out': '2MyJHMUenMWonC35Yi6PHC7i2tkS7PuomCy'
+                'out': 'pBbdZu72GGCZao4hmx56tDCtAu5bGrxAy7'
         }],
         'get_asm': [{
             'in': ([],),
@@ -4697,7 +4697,7 @@ UNITTEST_VECTOR = {
         }, {
             'in': (ADDR[0], P2SH_ADDR[0], config.BTC, DP['quantity'], None, False),
             'out': ('mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc',
-                    [('2MyJHMUenMWonC35Yi6PHC7i2tkS7PuomCy', 100000000)],
+                    [('pBbdZu72GGCZao4hmx56tDCtAu5bGrxAy7', 100000000)],
                     None)
         }, {
             'comment': 'resolve subasset to numeric asset',
