@@ -2393,7 +2393,7 @@ UNITTEST_VECTOR = {
             'out': (['fee_required must be in satoshis'])
         }, {
             'in': (ADDR[0], config.BTC, DP['quantity'], config.BTC, DP['quantity'], 2000, 0, DP['default_block_index']),
-            'out': (['cannot trade BTC for itself'])
+            'out': (['cannot trade MONA for itself'])
         }, {
             'in': (ADDR[0], 'DIVISIBLE', DP['quantity'] / 3, config.XCP, DP['quantity'], 2000, 0, DP['default_block_index']),
             'out': (['give_quantity must be in satoshis'])
@@ -3055,11 +3055,11 @@ UNITTEST_VECTOR = {
             },
             {
                 'in': (ADDR[7], ADDR[5], 1, None, DP['burn_start']),
-                'out': ['insufficient XCP balance for sweep. Need 0.5 XCP for antispam fee']
+                'out': ['insufficient XMP balance for sweep. Need 0.5 XMP for antispam fee']
             },
             {
                 'in': (ADDR[8], ADDR[5], 1, None, DP['burn_start']),
-                'out': ['insufficient XCP balance for sweep. Need 0.5 XCP for antispam fee']
+                'out': ['insufficient XMP balance for sweep. Need 0.5 XMP for antispam fee']
             }
         ],
         'compose': [
@@ -3506,7 +3506,7 @@ UNITTEST_VECTOR = {
             'error': (exceptions.TransactionError, 'One `OP_RETURN` output per transaction.')
         }, {
             'in': (('mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns', [('mvCounterpartyXXXXXXXXXXXXXXW24Hef', 2**30)], b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x00\x00\x02\xfa\xf0\x80'), {'encoding': 'multisig'}),
-            'error': (exceptions.BalanceError,  'Insufficient BTC at address mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns. (Need approximately 10.73761799 BTC.) To spend unconfirmed coins, use the flag `--unconfirmed`. (Unconfirmed coins cannot be spent from multi‐sig addresses.)')
+            'error': (exceptions.BalanceError,  'Insufficient MONA at address mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns. (Need approximately 10.73761799 MONA.) To spend unconfirmed coins, use the flag `--unconfirmed`. (Unconfirmed coins cannot be spent from multi‐sig addresses.)')
         }, {
             'comment': 'opreturn encoding with maximum possible data that fits in 80 bytes opreturn (72 bytes of data + 8 bytes for PREFIX)',
             'in': (('mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns', [('mvCounterpartyXXXXXXXXXXXXXXW24Hef', 62000000)], b'\x00' * 72), {'encoding': 'opreturn'}),
@@ -3532,7 +3532,7 @@ UNITTEST_VECTOR = {
             'in': (('mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc', [('mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns', None)], b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x00\x00\x02\xfa\xf0\x80'),
                    {'encoding': 'multisig',
                     'custom_inputs': [{'address': 'mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc', 'txhex': '0100000002eff195acdf2bbd215daa8aca24eb667b563a731d34a9ab75c8d8df5df08be29b000000006c493046022100ec6fa8316a4f5cfd69816e31011022acce0933bd3b01248caa8b49e60de1b98a022100987ba974b2a4f9976a8d61d94009cb7f7986a827dc5730e999de1fb748d2046c01210282b886c087eb37dc8182f14ba6cc3e9485ed618b95804d44aecc17c300b585b0ffffffffeff195acdf2bbd215daa8aca24eb667b563a731d34a9ab75c8d8df5df08be29b010000006a47304402201f8fb2d62df22592cb8d37c68ab26563dbb8e270f7f8409ac0f6d7b24ddb5c940220314e5c767fd12b20116528c028eab2bfbad30eb963bd849993410049cf14a83d01210282b886c087eb37dc8182f14ba6cc3e9485ed618b95804d44aecc17c300b585b0ffffffff02145fea0b000000001976a9144838d8b3588c4c7ba7c1d06f866e9b3739c6303788ac0000000000000000346a32544553540000000a00000000000000010000000005f5e1000000000000000000000000000bebc2000032000000000000271000000000', 'confirmations': 74, 'vout': 0, 'scriptPubKey': '76a9144838d8b3588c4c7ba7c1d06f866e9b3739c6303788ac', 'txid': 'ae241be7be83ebb14902757ad94854f787d9730fc553d6f695346c9375c0d8c1', 'amount': 0.00001, 'account': ''}]}),
-            'error': (exceptions.BalanceError, 'Insufficient BTC at address mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc. (Need approximately 0.0002088 BTC.) To spend unconfirmed coins, use the flag `--unconfirmed`. (Unconfirmed coins cannot be spent from multi‐sig addresses.)')
+            'error': (exceptions.BalanceError, 'Insufficient MONA at address mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc. (Need approximately 0.0002088 MONA.) To spend unconfirmed coins, use the flag `--unconfirmed`. (Unconfirmed coins cannot be spent from multi‐sig addresses.)')
         }, {
             'comment': 'send with custom input',
             'in': (('mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc', [('mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns', None)], b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x00\x00\x02\xfa\xf0\x80'),
@@ -5064,22 +5064,22 @@ UNITTEST_VECTOR = {
             'out': (['send list cannot have only one element'])
         }, {
             'in': (ADDR[0], [(config.XCP, ADDR[2], DP['quantity']), (config.XCP, ADDR[1], 0.1)], 1),
-            'out': (['quantities must be an int (in satoshis) for XCP to {}'.format(ADDR[1])])
+            'out': (['quantities must be an int (in satoshis) for XMP to {}'.format(ADDR[1])])
         }, {
             'in': (ADDR[0], [(config.XCP, ADDR[2], DP['quantity']), (config.XCP, ADDR[1], -DP['quantity'])], 1),
-            'out': (['negative quantity for XCP to {}'.format(ADDR[1])])
+            'out': (['negative quantity for XMP to {}'.format(ADDR[1])])
         }, {
             'in': (ADDR[0], [(config.XCP, ADDR[2], DP['quantity']), (config.XCP, ADDR[1], 0)], 1),
-            'out': (['zero quantity for XCP to {}'.format(ADDR[1])])
+            'out': (['zero quantity for XMP to {}'.format(ADDR[1])])
         }, {
             'in': (ADDR[0], [(config.XCP, ADDR[2], DP['quantity']), (config.XCP, ADDR[1], config.MAX_INT + 1)], 1),
-            'out': (['integer overflow for XCP to {}'.format(ADDR[1])])
+            'out': (['integer overflow for XMP to {}'.format(ADDR[1])])
         }, {
             'in': (ADDR[0], [(config.XCP, ADDR[2], DP['quantity']), (config.XCP, None, DP['quantity'])], 1),
-            'out': (['destination is required for XCP'])
+            'out': (['destination is required for XMP'])
         }, {
             'in': (ADDR[0], [(config.XCP, ADDR[2], DP['quantity']), (config.BTC, ADDR[1], DP['quantity'])], 1),
-            'out': (['cannot send BTC to {}'.format(ADDR[1])])
+            'out': (['cannot send MONA to {}'.format(ADDR[1])])
         }, {
             'in': (ADDR[0], [(config.XCP, ADDR[2], DP['quantity']), (config.XCP, ADDR[6], DP['quantity'])], 1),
             'out': (['destination {} requires memo'.format(ADDR[6])])
@@ -5095,13 +5095,13 @@ UNITTEST_VECTOR = {
         }],
         'compose': [{
             'in': (ADDR[0], [(config.XCP, ADDR[1], DP['quantity'] * 1000000)], None, None),
-            'error': (exceptions.ComposeError, 'insufficient funds for XCP')
+            'error': (exceptions.ComposeError, 'insufficient funds for XMP')
         }, {
             'in': (ADDR[0], [(config.XCP, ADDR[2], DP['quantity']), (config.XCP, ADDR[1], 0.1)], None, None),
-            'error': (exceptions.ComposeError, 'quantities must be an int (in satoshis) for XCP')
+            'error': (exceptions.ComposeError, 'quantities must be an int (in satoshis) for XMP')
         }, {
             'in': (ADDR[0], [(config.XCP, ADDR[2], DP['quantity']), (config.XCP, ADDR[1], DP['quantity'] * 10000)], None, None),
-            'error': (exceptions.ComposeError, 'insufficient funds for XCP')
+            'error': (exceptions.ComposeError, 'insufficient funds for XMP')
         }, {
             'in': (ADDR[0], [(config.XCP, ADDR[2], DP['quantity']), (config.XCP, ADDR[1], DP['quantity'])], None, None),
             'mock_protocol_changes': {'short_tx_type_id': True},
