@@ -3085,7 +3085,7 @@ UNITTEST_VECTOR = {
             },
             {
                 'in': (ADDR[8], ADDR[5], 1, None),
-                'error': (exceptions.ComposeError, "['insufficient XCP balance for sweep. Need 0.5 XCP for antispam fee']")
+                'error': (exceptions.ComposeError, "['insufficient XMP balance for sweep. Need 0.5 XMP for antispam fee']")
             }
         ],
         'unpack': [
@@ -4555,19 +4555,19 @@ UNITTEST_VECTOR = {
     },
     'address': {
         'pack': [{
-            'in': ('1AAAA1111xxxxxxxxxxxxxxxxxxy43CZ9j',),
+            'in': ('MH4KPRuQWz8mrdwJBwcuDEaJSBr8WvPsW3',),
             'out': bytes.fromhex('006474849fc9ac0f5bd6b49fe144d14db7d32e2445')
         },
         {
-            'in': ('1AAAA2222xxxxxxxxxxxxxxxxxxy4pQ3tU',),
+            'in': ('MH4KPSvRXz8mrdwJBwcuDEaJSBr8bwuyEt',),
             'out': bytes.fromhex('00647484b055e2101927e50aba74957ba134d501d7')
         },
         {
-            'in': ('3AAAA1111xxxxxxxxxxxxxxxxxxy3SsDsZ',),
+            'in': ('PH4KPRuQWz8mrdwJBwcuDEaJSBr8Yxt9gS',),
             'out': bytes.fromhex('055ce31be63403fa7b19f2614272547c15c8df86b9')
         },
         {
-            'in': ('2MtAV7xpAzU69E8GxRF2Vd2xt79kDnif6F5',),
+            'in': ('p6TqLPGQuDUvctG7V6iKK8TjPJPhc36cog',),
             'out': bytes.fromhex('C40A12AD889AECC8F6213BFD6BD47911CAB1C30E5F')
         },
         {
@@ -4576,19 +4576,19 @@ UNITTEST_VECTOR = {
         }],
         'unpack': [{
             'in': (bytes.fromhex('006474849fc9ac0f5bd6b49fe144d14db7d32e2445'),),
-            'out': '1AAAA1111xxxxxxxxxxxxxxxxxxy43CZ9j'
+            'out': 'MH4KPRuQWz8mrdwJBwcuDEaJSBr8WvPsW3'
         },
         {
             'in': (bytes.fromhex('00647484b055e2101927e50aba74957ba134d501d7'),),
-            'out': '1AAAA2222xxxxxxxxxxxxxxxxxxy4pQ3tU'
+            'out': 'MH4KPSvRXz8mrdwJBwcuDEaJSBr8bwuyEt'
         },
         {
             'in': (bytes.fromhex('055ce31be63403fa7b19f2614272547c15c8df86b9'),),
-            'out': '3AAAA1111xxxxxxxxxxxxxxxxxxy3SsDsZ'
+            'out': 'PH4KPRuQWz8mrdwJBwcuDEaJSBr8Yxt9gS'
         },
         {
             'in': (bytes.fromhex('C40A12AD889AECC8F6213BFD6BD47911CAB1C30E5F'),),
-            'out': '2MtAV7xpAzU69E8GxRF2Vd2xt79kDnif6F5'
+            'out': 'p6TqLPGQuDUvctG7V6iKK8TjPJPhc36cog'
         }]
     },
     'versions.enhanced_send': {
@@ -4597,7 +4597,7 @@ UNITTEST_VECTOR = {
             'out': ({
               'asset': 'SOUP',
               'quantity': 100000000000,
-              'address': '1AAAA1111xxxxxxxxxxxxxxxxxxy43CZ9j',
+              'address': 'MH4KPRuQWz8mrdwJBwcuDEaJSBr8WvPsW3',
               'memo': None,
             })
         }, {
@@ -4605,7 +4605,7 @@ UNITTEST_VECTOR = {
             'out': ({
               'asset': config.XCP,
               'quantity': 123,
-              'address': '1AAAA2222xxxxxxxxxxxxxxxxxxy4pQ3tU',
+              'address': 'MH4KPSvRXz8mrdwJBwcuDEaJSBr8bwuyEt',
               'memo': bytes.fromhex('0deadbeef123'),
             })
         }, {
@@ -4663,19 +4663,19 @@ UNITTEST_VECTOR = {
             'out': (['destination requires memo'])
         }, {
             # ----- tests specific to enhanced send -----
-            'in': ('1AAAA1111xxxxxxxxxxxxxxxxxxy43CZ9j', '1AAAA2222xxxxxxxxxxxxxxxxxxy4pQ3tU', 'SOUP', 100000000, None, DP['default_block_index']),
+            'in': ('MH4KPRuQWz8mrdwJBwcuDEaJSBr8WvPsW3', 'MH4KPSvRXz8mrdwJBwcuDEaJSBr8bwuyEt', 'SOUP', 100000000, None, DP['default_block_index']),
             'out': ([])
         }, {
-            'in': ('1AAAA1111xxxxxxxxxxxxxxxxxxy43CZ9j', '1AAAA2222xxxxxxxxxxxxxxxxxxy4pQ3tU', 'SOUP', 100000000, bytes.fromhex('01ff'), DP['default_block_index']),
+            'in': ('MH4KPRuQWz8mrdwJBwcuDEaJSBr8WvPsW3', 'MH4KPSvRXz8mrdwJBwcuDEaJSBr8bwuyEt', 'SOUP', 100000000, bytes.fromhex('01ff'), DP['default_block_index']),
             'out': ([])
         }, {
-            'in': ('1AAAA1111xxxxxxxxxxxxxxxxxxy43CZ9j', '1AAAA2222xxxxxxxxxxxxxxxxxxy4pQ3tU', 'SOUP', 0, bytes.fromhex('01ff'), DP['default_block_index']),
+            'in': ('MH4KPRuQWz8mrdwJBwcuDEaJSBr8WvPsW3', 'MH4KPSvRXz8mrdwJBwcuDEaJSBr8bwuyEt', 'SOUP', 0, bytes.fromhex('01ff'), DP['default_block_index']),
             'out': (['zero quantity'])
         }, {
-            'in': ('1AAAA1111xxxxxxxxxxxxxxxxxxy43CZ9j', '', 'SOUP', 100000000, bytes.fromhex('01ff'), DP['default_block_index']),
+            'in': ('MH4KPRuQWz8mrdwJBwcuDEaJSBr8WvPsW3', '', 'SOUP', 100000000, bytes.fromhex('01ff'), DP['default_block_index']),
             'out': (['destination is required'])
         }, {
-            'in': ('1AAAA1111xxxxxxxxxxxxxxxxxxy43CZ9j', '1AAAA2222xxxxxxxxxxxxxxxxxxy4pQ3tU', 'SOUP', 100000000, bytes.fromhex('9999999999999999999999999999999999999999999999999999999999999999999999'), DP['default_block_index']),
+            'in': ('MH4KPRuQWz8mrdwJBwcuDEaJSBr8WvPsW3', 'MH4KPSvRXz8mrdwJBwcuDEaJSBr8bwuyEt', 'SOUP', 100000000, bytes.fromhex('9999999999999999999999999999999999999999999999999999999999999999999999'), DP['default_block_index']),
             'out': (['memo is too long'])
         }],
         'compose': [
