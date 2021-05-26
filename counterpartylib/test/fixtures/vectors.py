@@ -4439,12 +4439,12 @@ UNITTEST_VECTOR = {
             'error': (exceptions.AssetNameError, "parent asset name starts with ‘A’")
         },
         {
-            'in': ('BTC.child1',),
-            'error': (exceptions.AssetNameError, "parent asset cannot be BTC")
+            'in': ('MONA.child1',),
+            'error': (exceptions.AssetNameError, "parent asset cannot be MONA")
         },
         {
-            'in': ('XCP.child1',),
-            'error': (exceptions.AssetNameError, "parent asset cannot be XCP")
+            'in': ('XMP.child1',),
+            'error': (exceptions.AssetNameError, "parent asset cannot be XMP")
         },
         {
             'in': ('PARENT.',),
