@@ -455,6 +455,7 @@ def initialise_db(db):
 def run_scenario(scenario):
     """Execute a scenario for integration test, returns a dump of the db, a json with raw transactions and the full log."""
     server.initialise(database_file=':memory:', testnet=True, **COUNTERPARTYD_OPTIONS)
+    server._SelectParams()
     config.PREFIX = b'TESTXXXX'
     util.FIRST_MULTISIG_BLOCK_TESTNET = 1
     checkpoints = dict(check.CHECKPOINTS_TESTNET)
@@ -608,6 +609,8 @@ def exec_tested_method(tx_name, method, tested_method, inputs, server_db):
 def check_outputs(tx_name, method, inputs, outputs, error, records, comment, mock_protocol_changes, server_db):
     """Check actual and expected outputs of a particular function."""
 
+    server._SelectParams()
+    
     try:
         tested_module = sys.modules['counterpartylib.lib.{}'.format(tx_name)]
     except KeyError:    # TODO: hack
