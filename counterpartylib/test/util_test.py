@@ -687,6 +687,7 @@ def reparse(testnet=True):
     """
     options = dict(COUNTERPARTYD_OPTIONS)
     server.initialise(database_file=':memory:', testnet=testnet, **options)
+    server._SelectParams()
 
     logger = logging.getLogger()
 
