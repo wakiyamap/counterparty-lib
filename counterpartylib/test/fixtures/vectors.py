@@ -1042,7 +1042,7 @@ UNITTEST_VECTOR = {
             'out': ('mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns', [('mvCounterpartyXXXXXXXXXXXXXXW24Hef', 62000000)], None)
         }, {
             'in': (ADDR[0], DP['burn_quantity']),
-            'error': (exceptions.ComposeError, '1 BTC may be burned per address')
+            'error': (exceptions.ComposeError, '1 MONA may be burned per address')
         }, {
             'in': (MULTISIGADDR[0], int(DP['quantity'] / 2)),
             'out': ('1_mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc_mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns_2', [('mvCounterpartyXXXXXXXXXXXXXXW24Hef', 50000000)], None)
@@ -1110,7 +1110,7 @@ UNITTEST_VECTOR = {
             'error': (exceptions.ValidateError, 'destination exists')
         }, {
             'in': (ADDR[0], None, config.BTC, 1),
-            'error': (exceptions.ValidateError, 'cannot destroy BTC')
+            'error': (exceptions.ValidateError, 'cannot destroy MONA')
         }, {
             'in': (ADDR[0], None, config.XCP, 1.1),
             'error': (exceptions.ValidateError, 'quantity not integer')
