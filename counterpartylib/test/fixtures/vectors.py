@@ -2182,7 +2182,7 @@ UNITTEST_VECTOR = {
                         {'address_quantity': 1000000000, 'dividend_quantity': 1000000000000, 'address': '1_mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc_mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns_2'},
                         {'address_quantity': 100000000, 'dividend_quantity': 100000000000, 'address': 'pBbdZu72GGCZao4hmx56tDCtAu5bGrxAy7'}
                     ],
-                    ['insufficient funds (XCP)'],
+                    ['insufficient funds (XMP)'],
                     0)
         }, {
             'in': (ADDR[0], DP['quantity'] * -1000, 'DIVISIBLE', config.XCP, DP['default_block_index']),
@@ -2225,7 +2225,7 @@ UNITTEST_VECTOR = {
                         {'address_quantity': 1000000000, 'address': '1_mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc_mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns_2', 'dividend_quantity': 1000000000},
                         {'address_quantity': 100000000, 'address': 'pBbdZu72GGCZao4hmx56tDCtAu5bGrxAy7', 'dividend_quantity': 100000000}
                     ],
-                    ['only issuer can pay dividends', 'insufficient funds (XCP)'],
+                    ['only issuer can pay dividends', 'insufficient funds (XMP)'],
                     0)
         }, {
             'in': (ADDR[0], DP['quantity'], 'DIVISIBLE', 'NOASSET', DP['default_block_index']),
@@ -2238,7 +2238,7 @@ UNITTEST_VECTOR = {
                         {'address': '1_mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc_mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns_2', 'dividend_quantity': 83590909090, 'address_quantity': 1000000000},
                         {'address': 'pBbdZu72GGCZao4hmx56tDCtAu5bGrxAy7', 'dividend_quantity': 8359090909, 'address_quantity': 100000000},
                     ],
-                    ['insufficient funds (XCP)'],
+                    ['insufficient funds (XMP)'],
                     0)
         }, {
             'in': (ADDR[2], 100000000, 'DIVIDEND', 'DIVIDEND', DP['default_block_index']),
@@ -2246,7 +2246,7 @@ UNITTEST_VECTOR = {
                     [
                         {'address_quantity': 10, 'address': 'mqPCfvqTfYctXMUfmniXeG2nyaN8w6tPmj', 'dividend_quantity': 10},
                     ],
-                    ['insufficient funds (XCP)'],
+                    ['insufficient funds (XMP)'],
                     20000)
         }, {
             'in': (ADDR[2], 2 ** 63, 'DIVIDEND', 'DIVIDEND', DP['default_block_index']),
@@ -3615,7 +3615,7 @@ UNITTEST_VECTOR = {
         }, {
             'comment': 'order',
             'in': (('mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc', [], b'\x00\x00\x00\n\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\xfa\xf0\x80\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x00\x00\x05\xf5\xe1\x00\x00\n\x00\x00\x00\x00\x00\x00\x00\x00'), {'encoding': 'multisig','fee_provided': DP['fee_provided']}),
-            'out': '0100000001c1d8c075936c3495f6d653c50f73d987f75448d97a750249b1eb83bee71b24ae000000001976a9144838d8b3588c4c7ba7c1d06f866e9b3739c6303788acffffffff02b0300100000000006951210348415bf04af834423d3dd7adaedc727a030865759e9fba5aee78c9ea71e5870f210354da540fb2673b75e6c3c994f80ad0c8431643bab28ced783cd94079bbe72445210282b886c087eb37dc8182f14ba6cc3e9485ed618b95804d44aecc17c300b585b053ae24ecd90b000000001976a9144838d8b3588c4c7ba7c1d06f866e9b3739c6303788ac00000000'
+            'out': '0100000001c1d8c075936c3495f6d653c50f73d987f75448d97a750249b1eb83bee71b24ae000000001976a9144838d8b3588c4c7ba7c1d06f866e9b3739c6303788acffffffff02b030010000000000695121024d415bf04af834423d37d7ada4dc727a030865759e9fb8a01efa331af1e58728210354da550fb2663b701322cc61130ad0c2431643bab28ced783cd94079bbe7241d210282b886c087eb37dc8182f14ba6cc3e9485ed618b95804d44aecc17c300b585b053ae24ecd90b000000001976a9144838d8b3588c4c7ba7c1d06f866e9b3739c6303788ac00000000'
         }, {
             'comment': 'multisig order',
             'in': (('1_mn6q3dS2EnDUx3bmyWc6D4szJNVGtaR7zc_mtQheFaSfWELRB2MyMBaiWjdDm6ux9Ezns_2', [], b'\x00\x00\x00\n\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\xfa\xf0\x80\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x00\x00\x05\xf5\xe1\x00\x00\n\x00\x00\x00\x00\x00\x00\x00\x00'), {'encoding': 'multisig','fee_provided': DP['fee_provided']}),
@@ -4043,7 +4043,7 @@ UNITTEST_VECTOR = {
             'out': '0100000001c1d8c075936c3495f6d653c50f73d987f75448d97a750249b1eb83bee71b24ae000000001976a9144838d8b3588c4c7ba7c1d06f866e9b3739c6303788acffffffff0336150000000000001976a9148d6ae8a3b381663118b4e1eff4cfc7d0954dd6ec88ac781e0000000000006951210259415bf04af834423d3dd7adb0dc727aa153863ef89fba5aee7a331af1e4873a210254da540fb2663b75e6c3cc61190ad0c2431643bab28ced783cd94079bbe72447210282b886c087eb37dc8182f14ba6cc3e9485ed618b95804d44aecc17c300b585b053ae840dea0b000000001976a9144838d8b3588c4c7ba7c1d06f866e9b3739c6303788ac00000000'
         }, {
             'in': ('create_order', {'source': ADDR[0], 'give_asset': config.BTC, 'give_quantity': DP['small'], 'get_asset': config.XCP, 'get_quantity': DP['small'] * 2, 'expiration': DP['expiration'], 'fee_required': 0, 'fee_provided': DP['fee_provided'], 'encoding': 'multisig'}),
-            'out': '0100000001c1d8c075936c3495f6d653c50f73d987f75448d97a750249b1eb83bee71b24ae000000001976a9144838d8b3588c4c7ba7c1d06f866e9b3739c6303788acffffffff02b0300100000000006951210348415bf04af834423d3dd7adaedc727a030865759e9fba5aee78c9ea71e5870f210354da540fb2673b75e6c3c994f80ad0c8431643bab28ced783cd94079bbe72445210282b886c087eb37dc8182f14ba6cc3e9485ed618b95804d44aecc17c300b585b053ae24ecd90b000000001976a9144838d8b3588c4c7ba7c1d06f866e9b3739c6303788ac00000000'
+            'out': '0100000001c1d8c075936c3495f6d653c50f73d987f75448d97a750249b1eb83bee71b24ae000000001976a9144838d8b3588c4c7ba7c1d06f866e9b3739c6303788acffffffff02b030010000000000695121024d415bf04af834423d37d7ada4dc727a030865759e9fb8a01efa331af1e58728210354da550fb2663b701322cc61130ad0c2431643bab28ced783cd94079bbe7241d210282b886c087eb37dc8182f14ba6cc3e9485ed618b95804d44aecc17c300b585b053ae24ecd90b000000001976a9144838d8b3588c4c7ba7c1d06f866e9b3739c6303788ac00000000'
         }, {
             'in': ('create_order', {'source': ADDR[0], 'give_asset': config.XCP, 'give_quantity': round(DP['small'] * 2.1), 'get_asset': config.BTC, 'get_quantity': DP['small'], 'expiration': DP['expiration'], 'fee_required': DP['fee_required'], 'encoding': 'multisig'}),
             'out': '0100000001c1d8c075936c3495f6d653c50f73d987f75448d97a750249b1eb83bee71b24ae000000001976a9144838d8b3588c4c7ba7c1d06f866e9b3739c6303788acffffffff02b030010000000000695121034d415bf04af834423d37d7ada4dc727a030965759e9fbc18c23a331af1e58715210254da540fb2663b771c334c61130ad0c243164e01128ced783cd94079bbe724e0210282b886c087eb37dc8182f14ba6cc3e9485ed618b95804d44aecc17c300b585b053aed413e90b000000001976a9144838d8b3588c4c7ba7c1d06f866e9b3739c6303788ac00000000'
@@ -4621,7 +4621,7 @@ UNITTEST_VECTOR = {
             'in': (bytes.fromhex('0000000000000003' + '000000000000007b' + '32647484b055e2101927e50aba74957ba134d501d7'), DP['default_block_index']),
             'error': (exceptions.UnpackError, 'asset id invalid')
         }, {
-            'in': (b'\x02\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x00\x00\x00\x01\x86\xa0\x80u\x1ev\xe8\x19\x91\x96\xd4T\x94\x1cE\xd1\xb3\xa3#\xf1C;\xd6segwit', DP['default_block_index']),
+            'in': (b'\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x00\x00\x00\x01\x86\xa0\x80u\x1ev\xe8\x19\x91\x96\xd4T\x94\x1cE\xd1\xb3\xa3#\xf1C;\xd6segwit', DP['default_block_index']),
             'out': ({
                 'address': P2WPKH_ADDR[0],
                 'asset': config.XCP,
@@ -4670,13 +4670,13 @@ UNITTEST_VECTOR = {
             'out': ([])
         }, {
             'in': ('MH4KPRuQWz8mrdwJBwcuDEaJSBr8WvPsW3', 'MH4KPSvRXz8mrdwJBwcuDEaJSBr8bwuyEt', 'SOUP', 0, bytes.fromhex('01ff'), DP['default_block_index']),
-            'out': (['zero quantity'])
+            'out': (['zero quantity', 'issuance not found (system error?)'])
         }, {
             'in': ('MH4KPRuQWz8mrdwJBwcuDEaJSBr8WvPsW3', '', 'SOUP', 100000000, bytes.fromhex('01ff'), DP['default_block_index']),
-            'out': (['destination is required'])
+            'out': (['destination is required', 'issuance not found (system error?)'])
         }, {
             'in': ('MH4KPRuQWz8mrdwJBwcuDEaJSBr8WvPsW3', 'MH4KPSvRXz8mrdwJBwcuDEaJSBr8bwuyEt', 'SOUP', 100000000, bytes.fromhex('9999999999999999999999999999999999999999999999999999999999999999999999'), DP['default_block_index']),
-            'out': (['memo is too long'])
+            'out': (['memo is too long', 'issuance not found (system error?)'])
         }],
         'compose': [
         # ----- tests copied from regular send -----
