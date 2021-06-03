@@ -1527,10 +1527,10 @@ UNITTEST_VECTOR = {
             'out': (0, 0.0, ['cannot change callability'], 0, '', True, True, None)
         }, {
             'in': (ADDR[0], None, config.BTC, 1000, True, False, None, None, '', None, None, DP['default_block_index']),
-            'out': (0, 0.0, ['cannot issue BTC or XCP'], 50000000, '', True, False, None)
+            'out': (0, 0.0, ['cannot issue MONA or XMP'], 50000000, '', True, False, None)
         }, {
             'in': (ADDR[0], None, config.XCP, 1000, True, False, None, None, '', None, None, DP['default_block_index']),
-            'out': (0, 0.0, ['cannot issue BTC or XCP'], 50000000, '', True, False, None)
+            'out': (0, 0.0, ['cannot issue MONA or XMP'], 50000000, '', True, False, None)
         }, {
             'in': (ADDR[0], None, 'NOSATOSHI', 1000.5, True, False, None, None, '', None, None, DP['default_block_index']),
             'out': (0, 0.0, ['quantity must be in satoshis'], 0, '', True, None, None)
@@ -2195,13 +2195,13 @@ UNITTEST_VECTOR = {
                     ['non‐positive quantity per unit'],
                     0)
         }, {
-            'comment': 'cannot pay dividends to holders of BTC',
+            'comment': 'cannot pay dividends to holders of MONA',
             'in': (ADDR[0], DP['quantity'], config.BTC, config.XCP, DP['default_block_index']),
-            'out': (None, None, ['cannot pay dividends to holders of BTC', 'no such asset, BTC.'], 0)
+            'out': (None, None, ['cannot pay dividends to holders of MONA', 'no such asset, MONA.'], 0)
         }, {
-            'comment': 'cannot pay dividends to holders of XCP',
+            'comment': 'cannot pay dividends to holders of XMP',
             'in': (ADDR[0], DP['quantity'], config.XCP, config.XCP, DP['default_block_index']),
-            'out': (None, None, ['cannot pay dividends to holders of XCP', 'no such asset, XCP.'], 0)
+            'out': (None, None, ['cannot pay dividends to holders of XMP', 'no such asset, XMP.'], 0)
         }, {
             'comment': 'no such asset, NOASSET',
             'in': (ADDR[0], DP['quantity'], 'NOASSET', config.XCP, DP['default_block_index']),
