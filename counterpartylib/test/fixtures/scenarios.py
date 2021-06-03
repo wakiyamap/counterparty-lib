@@ -33,11 +33,11 @@ from counterpartylib.lib import config
 
 UNITTEST_FIXTURE = [
     ['burn', (ADDR[0], DP['burn_quantity']), {'encoding': 'multisig'}],  # 310000
-    ['issuance', (ADDR[0], None, 'DIVISIBLE', DP['quantity'] * 1000, True, 'Divisible asset', None, None, None, None), {'encoding': 'multisig'}],
-    ['issuance', (ADDR[0], None, 'NODIVISIBLE', 1000, False, 'No divisible asset', None, None, None, None), {'encoding': 'multisig'}],
-    ['issuance', (ADDR[0], None, 'CALLABLE', 1000, True, 'Callable asset', None, None, None, None), {'encoding': 'multisig'}],
-    ['issuance', (ADDR[0], None, 'LOCKED', 1000, True, 'Locked asset', None, None, None, None), {'encoding': 'multisig'}],
-    ['issuance', (ADDR[0], None, 'LOCKED', 0, True, 'LOCK', None, None, None, None), {'encoding': 'multisig'}],
+    ['issuance', (ADDR[0], None, 'DIVISIBLE', DP['quantity'] * 1000, True, 'Divisible asset', True, None, None, None), {'encoding': 'multisig'}],
+    ['issuance', (ADDR[0], None, 'NODIVISIBLE', 1000, False, 'No divisible asset', True, None, None, None), {'encoding': 'multisig'}],
+    ['issuance', (ADDR[0], None, 'CALLABLE', 1000, True, 'Callable asset', True, None, None, None), {'encoding': 'multisig'}],
+    ['issuance', (ADDR[0], None, 'LOCKED', 1000, True, 'Locked asset', True, None, None, None), {'encoding': 'multisig'}],
+    ['issuance', (ADDR[0], None, 'LOCKED', 0, True, 'LOCK', True, None, None, None), {'encoding': 'multisig'}],
     ['order', (ADDR[0], config.XCP, DP['quantity'], 'DIVISIBLE', DP['quantity'], 2000, 0), {'encoding': 'multisig'}],
     ['send', (ADDR[0], ADDR[1], 'DIVISIBLE', DP['quantity']), {'encoding': 'multisig'}, None],
     ['send', (ADDR[0], ADDR[1], config.XCP, DP['quantity']), {'encoding': 'multisig'}, None],
@@ -48,7 +48,7 @@ UNITTEST_FIXTURE = [
     ['send', (ADDR[0], MULTISIGADDR[0], 'DIVISIBLE', DP['quantity'] * 10), {'encoding': 'multisig'}, None],
     ['send', (ADDR[0], ADDR[1], 'NODIVISIBLE', 5), {'encoding': 'multisig'}, None],
     ['send', (ADDR[0], MULTISIGADDR[0], 'NODIVISIBLE', 10), {'encoding': 'multisig'}, None],
-    ['issuance', (ADDR[0], None, 'MAXI', 2**63 - 1, True, 'Maximum quantity', None, None, None, None), {'encoding': 'multisig'}],
+    ['issuance', (ADDR[0], None, 'MAXI', 2**63 - 1, True, 'Maximum quantity', True, None, None, None), {'encoding': 'multisig'}],
     ['broadcast', (ADDR[0], 1388000000, 1, DP['fee_multiplier'], 'Unit Test'), {'encoding': 'multisig'}],
     ['broadcast', (ADDR[2], 1288000000, 1, 0.0, 'lock'), {'encoding': 'multisig'}],
     ['bet', (ADDR[0], ADDR[0], 1, 1388000001, 9, 9, 0.0, 5040, 100), {'encoding': 'multisig'}],
@@ -65,15 +65,15 @@ UNITTEST_FIXTURE = [
     ['dispenser', (ADDR[5], 'XMP', 100, 100, 100, 0), {'encoding': 'opreturn'}],
 
     ['burn', (P2SH_ADDR[0], int(DP['burn_quantity'] / 2)), {'encoding': 'opreturn'}],
-    ['issuance', (P2SH_ADDR[0], None, 'PAYTOSCRIPT', 1000, False, 'PSH issued asset', None, None, None, None), {'encoding': 'multisig', 'dust_return_pubkey': False}],
+    ['issuance', (P2SH_ADDR[0], None, 'PAYTOSCRIPT', 1000, False, 'PSH issued asset', True, None, None, None), {'encoding': 'multisig', 'dust_return_pubkey': False}],
     ['send', (ADDR[0], P2SH_ADDR[0], 'DIVISIBLE', DP['quantity']), {'encoding': 'multisig'}, None],
     ['broadcast', (P2SH_ADDR[0], 1388000002, 1, DP['fee_multiplier'], 'Unit Test'), {'encoding': 'opreturn'}],
     ['bet', (P2SH_ADDR[0], P2SH_ADDR[0], 3, 1388000200, 10, 10, 0.0, 5040, 1000), {'encoding': 'opreturn'}],
 
     # locked with an issuance after lock
-    ['issuance', (ADDR[6], None, 'LOCKEDPREV', 1000, True, 'Locked asset', None, None, None, None), {'encoding': 'multisig'}],
-    ['issuance', (ADDR[6], None, 'LOCKEDPREV', 0, True, 'LOCK', None, None, None, None), {'encoding': 'multisig'}],
-    ['issuance', (ADDR[6], None, 'LOCKEDPREV', 0, True, 'changed', None, None, None, None), {'encoding': 'multisig'}],
+    ['issuance', (ADDR[6], None, 'LOCKEDPREV', 1000, True, 'Locked asset', True, None, None, None), {'encoding': 'multisig'}],
+    ['issuance', (ADDR[6], None, 'LOCKEDPREV', 0, True, 'LOCK', True, None, None, None), {'encoding': 'multisig'}],
+    ['issuance', (ADDR[6], None, 'LOCKEDPREV', 0, True, 'changed', True, None, None, None), {'encoding': 'multisig'}],
 
     ['burn', (P2WPKH_ADDR[0], DP['burn_quantity']), {'encoding': 'opreturn'}],
 
